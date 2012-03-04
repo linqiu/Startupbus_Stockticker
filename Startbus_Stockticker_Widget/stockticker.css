@@ -8,10 +8,9 @@
 }
 
 .stock_list {
-	width:1650px;
 	height:29px;
 	position:relative;
-	left:0;
+	left:179px;
 }
 
 .stock_list :hover{
@@ -26,5 +25,7 @@
 	font-size: 14px;
 	line-height: 18px;
 	padding: 5px;
+	width:50px;
+	text-align:center;
 	text-shadow: 0 1px 1px;
 }
