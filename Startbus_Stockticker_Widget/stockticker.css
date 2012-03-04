@@ -8,6 +8,19 @@
 }
 
 .stock_list {
-	width:2000px;
+	width:1050px;
 	height:19px;
+	position:relative;
+	left:0;
+}
+
+.stock_name {
+	float:left;
+	color: #5774A2;
+	display: block;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 18px;
+	padding: 5px;
+	text-shadow: 0 1px 1px;
 }
