@@ -1,0 +1,13 @@
+/* =Structure
+----------------------------------------------- */
+
+#StockTicker {
+	width:179px;
+	height:19px;
+	overflow:hidden;
+}
+
+.stock_list {
+	width:2000px;
+	height:19px;
+}

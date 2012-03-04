@@ -61,9 +61,10 @@ class stockticker_widget extends WP_Widget {
 			// display the widget front content (but not immediatly because of cache system)
 			echo '
 				<div id="StockTicker">
-					<h2>This is the stockticker widget</h2>
-					<script type="text/javascript" src="wp-content/plugins/Startbus_Stockticker_Widget/js/stock.js"></script>
+				
 				</div>
+					<script type="text/javascript" src="wp-content/plugins/Startbus_Stockticker_Widget/js/stock.js"></script>
+				
 			';
 	}
 }
