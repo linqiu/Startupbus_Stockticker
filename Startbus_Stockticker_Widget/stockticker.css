@@ -3,15 +3,19 @@
 
 #StockTicker {
 	width:179px;
-	height:19px;
+	height:29px;
 	overflow:hidden;
 }
 
 .stock_list {
-	width:1050px;
-	height:19px;
+	width:1750px;
+	height:29px;
 	position:relative;
 	left:0;
+}
+
+.stock_list :hover{
+	background:blue;
 }
 
 .stock_name {

@@ -13,14 +13,24 @@ window.onload = (function(){
 
 $(document).ready(function() {
 	showData();
-		
-	$('#stock_strip').animate({
-    	left: '-=1050'
-  	}, 30000, 'linear', function() {
-  	});
+	ShowTick($('#stock_strip'));
 });
 
-	
+function ShowTick(elem) {
+    elem.animate({
+    	left: '-=1750'
+  	}, 30000, 'linear', function() {
+    });
+}
+
+$('#stock_strip').mouseover(function() {
+	alert("OMG I'm HOVERING");
+    $(this).stop(true, true);
+});
+$('#stock_strip').mouseout(function() {
+        ShowTick($(this));
+});
+
 function showData() {
 	dv_stock = document.createElement('div');
 	dv_stock.className = "stock_list";
