@@ -18,9 +18,15 @@ $(document).ready(function() {
 
 function ShowTick(elem) {
     elem.animate({
-    	left: '-=1750'
-  	}, 30000, 'linear', function() {
+    	left: '-=1650'
+  	}, 35000, 'linear', function() {
+  		reset_strip();
     });
+}
+
+function reset_strip() {
+	$('#stock_strip').css('left', "0px");
+	ShowTick($('#stock_strip'));
 }
 
 $('#stock_strip').mouseover(function() {
