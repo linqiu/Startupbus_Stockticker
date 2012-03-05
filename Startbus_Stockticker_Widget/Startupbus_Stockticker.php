@@ -89,7 +89,7 @@ class stockticker_widget extends WP_Widget {
 		
 			echo '
 				<div id="StockTicker" style="width:'.$instance.'">
-				
+					<div id="loadingMessage"></div>
 				</div>
 				<script type="text/javascript" src="wp-content/plugins/Startbus_Stockticker_Widget/js/stock.js"></script>
 				

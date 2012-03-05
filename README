@@ -4,12 +4,15 @@ INSTALLATION:
 needs jquery!
 
 release notes:
+- using YQL to read JSON feed from startupbus.com so we can test it on staging WP site.
+
 - fixed mouse over algorithm so it's even
 - speed and width of scrolling adjusts automatically for different number of companies
 - added custom width field in the widget on wp-admin side
-- added getJSON to actually read <site>/game/companies.json (now i can't test it in my local version and need access to wp-admin)
 
 FEATURES NEEDED:
+1.) add field in widget to show individual stock (will need GET access to JSON feed)
+2.) add field in widget to show tribe stock (will need GET access to JSON feed)
 
-1.) links added to each company stock (HOLD: need actual urls)
-2.) show whether the stocks are doing well or poorly (HOLD: waiting on api feature)
+3.) links added to each company stock (HOLD: need actual urls)
+4.) show whether the stocks are doing well or poorly (HOLD: waiting on api feature)
