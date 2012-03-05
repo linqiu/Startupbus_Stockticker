@@ -62,7 +62,7 @@ class stockticker_widget extends WP_Widget {
 				<div id="StockTicker">
 				
 				</div>
-					<script type="text/javascript" src="wp-content/plugins/Startbus_Stockticker_Widget/js/stock.js"></script>
+				<script type="text/javascript" src="wp-content/plugins/Startbus_Stockticker_Widget/js/stock.js"></script>
 				
 			';
 	}
@@ -70,7 +70,7 @@ class stockticker_widget extends WP_Widget {
 
 add_action('widgets_init', create_function('', 'return register_widget("stockticker_widget");'));
 add_action('wp_enqueue_scripts', 'add_my_stylesheet');
-
+//add_action('wp_enqueue_scripts', 'add_my_js');
    
     function add_my_stylesheet() {
         $myStyleUrl = plugins_url('css/stockticker.css', __FILE__); // Respects SSL, Style.css is relative to the current file
@@ -80,20 +80,15 @@ add_action('wp_enqueue_scripts', 'add_my_stylesheet');
             wp_enqueue_style( 'myStyleSheets');
         }
     }
+   	
+   	function add_my_js() {
+    		wp_register_script('custom_script',
+       			'/'.STOCKTICKER_PLUGINPATH . '/js/stock.js',
+       			array('jquery'),
+       			'1.0' );
+   			// enqueue the script
+   			wp_enqueue_script('custom_script');
+    	
+    }
 
-/*
-function my_plugin_init {
-
-	$sUrlPrefix = self::$PLUGIN_URL.'css/';
-	wp_register_style( 'custom', $sUrlPrefix.'stockticker.css' );
-	wp_enqueue_style( 'custom' );
-
-		$myStyleUrl = plugins_url('/css/stockticker.css', STOCKTICKER_PLUGINPATH); // Respects SSL, Style.css is relative to the current file
-        $myStyleFile = STOCKTICKER_PLUGINPATH . '/css/stockticker.css';
-        if ( file_exists($myStyleFile) ) {
-            wp_register_style('myStyleSheets', $myStyleUrl);
-            wp_enqueue_style( 'myStyleSheets');
-        }
-}
-*/
 ?>

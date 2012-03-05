@@ -1,6 +1,7 @@
 var strip_length = 0;
 // sets width of each stock name
 var stock_width = 60;
+var pauseTime = 35000;
 
 
 window.onload = (function(){
@@ -19,38 +20,37 @@ window.onload = (function(){
 $(document).ready(function() {
 	showData();
 	
-	ShowTick($('#stock_strip'), strip_length);
+	ShowTick($('#stock_strip'), strip_length, pauseTime);
 	
 	$('#StockTicker').mouseover(function() {
     	$('#stock_strip').stop();
 	});
 	$('#StockTicker').mouseout(function() {
-        ShowTick($('#stock_strip'), strip_length);
+		var amount = $('#stock_strip').css("left");
+		amount.replace("px","");
+		amount = parseInt(amount);
+		if(amount < 0) {
+			var resumeTime = pauseTime + (pauseTime*(amount/strip_length));
+			resumeTime = parseInt(resumeTime);
+		} else {
+			resumeTime = pauseTime;
+		}
+        ShowTick($('#stock_strip'), strip_length, resumeTime);
 	});
-	/*
-	$('#stock_strip').autoscroll.defaults = { 
-        start: {
-            step: 50,
-            scroll: true,
-            direction: "down"
-        },
-        delay: 5000,
-        ffrw: { speed: "fast", step: 100 }
-    };*/
 });
 
 
-function ShowTick(elem, strip_length) {
+function ShowTick(elem, strip_length, pauseTimeAmount) {
     elem.animate({
     	left: -strip_length
-  	}, 35000, 'linear', function() {
+  	}, pauseTimeAmount, 'linear', function() {
   		reset_strip();
     });
 }
 
 function reset_strip() {
 	$('#stock_strip').css('left', "179px");
-	ShowTick($('#stock_strip'), strip_length);
+	ShowTick($('#stock_strip'), strip_length, pauseTime);
 }
 
 
