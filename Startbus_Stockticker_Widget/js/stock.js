@@ -6,8 +6,8 @@ var pauseTime = 0;
 
 window.onload = (function(){
 	try{
-		$('#loadingMessage').append("loading...");
-		$.getJSON("http://www.startupbus.com/game/companies.json?callback=?", function(data) {
+		jQuery('#loadingMessage').append("loading...");
+		jQuery.getJSON("http://www.startupbus.com/game/companies.json?callback=?", function(data) {
 			showData(data);
 		});
 	} catch(e){		
@@ -16,16 +16,16 @@ window.onload = (function(){
 
 });
 
-$(document).ready(function() {
-	$('#loadingMessage').hide();
+jQuery(document).ready(function() {
+	jQuery('#loadingMessage').hide();
 
-	ShowTick($('#stock_strip'), strip_length, pauseTime);
+	ShowTick(jQuery('#stock_strip'), strip_length, pauseTime);
 	
-	$('#StockTicker').mouseover(function() {
-    	$('#stock_strip').stop();
+	jQuery('#StockTicker').mouseover(function() {
+    	jQuery('#stock_strip').stop();
 	});
-	$('#StockTicker').mouseout(function() {
-		var amount = $('#stock_strip').css("left");
+	jQuery('#StockTicker').mouseout(function() {
+		var amount = jQuery('#stock_strip').css("left");
 		amount.replace("px","");
 		amount = parseInt(amount);
 		if(amount < 0) {
@@ -34,7 +34,7 @@ $(document).ready(function() {
 		} else {
 			resumeTime = pauseTime;
 		}
-        ShowTick($('#stock_strip'), strip_length, resumeTime);
+        ShowTick(jQuery('#stock_strip'), strip_length, resumeTime);
 	});
 });
 
@@ -48,8 +48,8 @@ function ShowTick(elem, strip_length, pauseTimeAmount) {
 }
 
 function reset_strip() {
-	$('#stock_strip').css('left', "179px");
-	ShowTick($('#stock_strip'), strip_length, pauseTime);
+	jQuery('#stock_strip').css('left', "179px");
+	ShowTick(jQuery('#stock_strip'), strip_length, pauseTime);
 }
 
 
@@ -63,17 +63,17 @@ function showData(init_data) {
 	dv_stock = document.createElement('div');
 	dv_stock.className = "stock_list";
 	dv_stock.setAttribute('id', "stock_strip");
-	$("#StockTicker").append(dv_stock);					
+	jQuery("#StockTicker").append(dv_stock);					
 
-	$("#stock_strip").css('width', strip_length+"px");	
+	jQuery("#stock_strip").css('width', strip_length+"px");	
 	
 	for( var i=0; i<len; i++) {
 		dv_each_stock = document.createElement('div');
 		dv_each_stock.className = "stock_name";
 		dv_each_stock.setAttribute('id', "each_stock"+i);
-		$("#stock_strip").append(dv_each_stock);
+		jQuery("#stock_strip").append(dv_each_stock);
 		
-		$("#each_stock"+i).append('<a href="'+init_data[i].created_at+'" title="'+init_data[i].name+'">$'+init_data[i].ticker+"</a>");
+		jQuery("#each_stock"+i).append('<a href="'+init_data[i].created_at+'" title="'+init_data[i].name+'">$'+init_data[i].ticker+"</a>");
 		
 		
 
@@ -85,7 +85,7 @@ function cont_parse() {
 	try {
 		var latest_url = "../scripts/front_page_feed_update.php?latest=" + encodeURIComponent(latest_timestamp);
 
-		$.getJSON(latest_url, function(data2) {
+		jQuery.getJSON(latest_url, function(data2) {
 			parsedData = data2;
 			if (parsedData.length < 1) {
 				setTimeout("cont_parse()", 10000);

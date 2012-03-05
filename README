@@ -4,6 +4,7 @@ INSTALLATION:
 needs jquery!
 
 release notes:
+- changed all $ to jQuery
 - added custom title field for widget
 - JSON feed coming from startupbus (special shout out to Mr. Leonardo for the JSONP tip)
 - fixed mouse over algorithm so its speed is even
