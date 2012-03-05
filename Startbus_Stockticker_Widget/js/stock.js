@@ -100,12 +100,14 @@ function showData(init_data) {
 		dv_each_stock.setAttribute('id', "single_stock"+i);
 		jQuery("#stock_strip").append(dv_each_stock);
 		
-		jQuery("#single_stock"+i).append('<span onmouseover="ShowText(\'each_stock'+i+'\'); return true;" onmouseout="HideText(\'each_stock'+i+'\'); return true;" href="javascript:ShowText(\'each_stock'+i+'\')">'+'<a href="'+init_data[i].created_at+'" title="'+init_data[i].name+'">$'+init_data[i].ticker+"</a></span>");
+		jQuery("#single_stock"+i).append('<a href="'+init_data[i].created_at+'" title="'+init_data[i].name+'">$'+init_data[i].ticker+"</a></span>");
+			
+		//jQuery("#single_stock"+i).append('<span onmouseover="ShowText(\'each_stock'+i+'\'); return true;" onmouseout="HideText(\'each_stock'+i+'\'); return true;" href="javascript:ShowText(\'each_stock'+i+'\')">'+'<a href="'+init_data[i].created_at+'" title="'+init_data[i].name+'">$'+init_data[i].ticker+"</a></span>");
 			
 		dv_each_stock_info = document.createElement('div');
 		dv_each_stock_info.setAttribute('id', "each_stock"+i);
 		jQuery("#single_stock"+i).append(dv_each_stock_info);
-		jQuery("#each_stock"+i).append('Stock Name: '+init_data[i].name+'<br>shares: '+init_data[i].shares+'<br>cash: $'+init_data[i].cash+'<br>');
+		//jQuery("#each_stock"+i).append('Stock Name: '+init_data[i].name+'<br>shares: '+init_data[i].shares+'<br>cash: $'+init_data[i].cash+'<br>');
 		jQuery("#each_stock"+i).hide();
 	}
 	
