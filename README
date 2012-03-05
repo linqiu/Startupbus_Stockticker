@@ -4,6 +4,7 @@ INSTALLATION:
 needs jquery!
 
 release notes:
+- added custom bus_id classes for styling
 - programmitically adding custom JS so it doesn't affect where you place the widget
 - changed all $ to jQuery
 - added custom title field for widget

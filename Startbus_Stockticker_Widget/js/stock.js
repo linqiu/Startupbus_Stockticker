@@ -67,19 +67,91 @@ function showData(init_data) {
 	
 	for( var i=0; i<len; i++) {
 		dv_each_stock = document.createElement('div');
-		dv_each_stock.className = "stock_name";
-		dv_each_stock.setAttribute('id', "each_stock"+i);
+		
+		switch(init_data[i].bus_id)
+		{
+			case 1: tribe = "New_York";
+  			break;
+			case 2: tribe = "Silicon_Valley";
+  			break;
+  			case 3: tribe = "Florida";
+  			break;
+  			case 4: tribe = "Cincinnati";
+  			break;
+  			case 5: tribe = "Los_Angeles";
+  			break;
+  			case 6: tribe = "Louisiana";
+  			break;
+  			case 7: tribe = "Team_Mexico";
+  			break;
+  			case 8: tribe = "Las_Vegas";
+  			break;
+  			case 9: tribe = "Washington_DC";
+  			break;
+  			case 10: tribe = "Boston";
+  			break;
+  			case 11: tribe = "Stanford";
+  			break;
+			default: tribe = "Americas";
+  		}
+		
+		
+		dv_each_stock.className = "stock_name " + tribe;
+		dv_each_stock.setAttribute('id', "single_stock"+i);
 		jQuery("#stock_strip").append(dv_each_stock);
 		
-		jQuery("#each_stock"+i).append('<a href="'+init_data[i].created_at+'" title="'+init_data[i].name+'">$'+init_data[i].ticker+"</a>");
-		
-		
-
+		jQuery("#single_stock"+i).append('<span onmouseover="ShowText(\'each_stock'+i+'\'); return true;" onmouseout="HideText(\'each_stock'+i+'\'); return true;" href="javascript:ShowText(\'each_stock'+i+'\')">'+'<a href="'+init_data[i].created_at+'" title="'+init_data[i].name+'">$'+init_data[i].ticker+"</a></span>");
+			
+		dv_each_stock_info = document.createElement('div');
+		dv_each_stock_info.setAttribute('id', "each_stock"+i);
+		jQuery("#single_stock"+i).append(dv_each_stock_info);
+		jQuery("#each_stock"+i).append('Stock Name: '+init_data[i].name+'<br>shares: '+init_data[i].shares+'<br>cash: $'+init_data[i].cash+'<br>');
+		jQuery("#each_stock"+i).hide();
 	}
 	
 	ShowTick(jQuery('#stock_strip'), strip_length, pauseTime);
 
 }
+
+/*
+var cX = 0; var cY = 0; var rX = 0; var rY = 0;
+function UpdateCursorPosition(e){ cX = e.pageX; cY = e.pageY;} 
+function UpdateCursorPositionDocAll(e){ cX = event.clientX; cY = event.clientY;} 
+if(document.all) { document.onmousemove = UpdateCursorPositionDocAll; } 
+else { document.onmousemove = UpdateCursorPosition; } 
+
+function AssignPosition(d) { 
+	if(self.pageYOffset) { 
+		rX = self.pageXOffset; 
+		rY = self.pageYOffset; 
+	} else if(document.documentElement && document.documentElement.scrollTop) { 
+		rX = document.documentElement.scrollLeft; 
+		rY = document.documentElement.scrollTop; 
+	} else if(document.body) { 
+		rX = document.body.scrollLeft; 
+		rY = document.body.scrollTop; 
+	} 
+	
+	if(document.all) { 
+		cX += rX; 
+		cY += rY; 
+	} 
+
+	d.style.left = (cX+10) + "px"; 
+	d.style.top = (cY+10) + "px"; 
+}
+
+function HideText(d) { 
+	if(d.length < 1) { return; } 
+	document.getElementById(d).style.display = "none"; 
+}
+
+function ShowText(d) { 
+	if(d.length < 1) { return; } 
+	var dd = document.getElementById(d); 
+	AssignPosition(dd); 
+	dd.style.display = "block"; 
+} */
 
 function cont_parse() {
 	try {
