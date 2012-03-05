@@ -4,11 +4,11 @@
  * Plugin URI: http://linqiu.com
  * Description: Stockticker thAAAng
  * Author: Lin Qiu
- * Version: 0.5.0
+ * Version: 0.7.0
  * Author URI: http://linqiu.com
  */
 
-define('STOCKTICKER_VERSION', '0.5.0');
+define('STOCKTICKER_VERSION', '0.7.0');
 define('STOCKTICKER_PLUGINBASENAME', dirname(plugin_basename(__FILE__)));
 define('STOCKTICKER_PLUGINPATH', PLUGINDIR . '/' . STOCKTICKER_PLUGINBASENAME);
 
@@ -32,11 +32,20 @@ class stockticker_widget extends WP_Widget {
 
 	function form($instance) {
 		$instance = wp_parse_args((array) $instance, array(
-			'width_of_widget' => '',
-			'another' => ''
+			'width_of_widget' => '179',
+			'title_of_widget' => 'Stock Ticker'
 		));
 		// Version of the plugin (hidden field)
 		$jzoutput  = 'This displays the game info!';
+		$jzoutput .= '
+			<p style="border-bottom: 1px solid #DFDFDF;">
+				<label for="' . $this->get_field_id('title_of_widget') . '"><strong>Enter title for Widget</strong></label>
+			</p>
+			<p>
+				<input id="' . $this->get_field_id('title_of_widget') . '" name="' . $this->get_field_name('title_of_widget') . '" type="text" value="' . $instance['title_of_widget'] . '" />
+			</p>
+		';
+		
 		$jzoutput .= '
 			<p style="border-bottom: 1px solid #DFDFDF;">
 				<label for="' . $this->get_field_id('width_of_widget') . '"><strong>Enter Width of Widget</strong></label>
@@ -45,6 +54,7 @@ class stockticker_widget extends WP_Widget {
 				<input id="' . $this->get_field_id('width_of_widget') . '" name="' . $this->get_field_name('width_of_widget') . '" type="text" value="' . $instance['width_of_widget'] . '" />
 			</p>
 		';
+		
 		
 		echo $jzoutput;
 	}
@@ -55,10 +65,11 @@ class stockticker_widget extends WP_Widget {
 
 		$new_instance = wp_parse_args((array) $new_instance, array(
 			'width_of_widget' => '',
-			'another' => ''
+			'title' => ''
 		));
 
 		$instance['width_of_widget'] = strip_tags($new_instance['width_of_widget']);
+		$instance['title_of_widget'] = strip_tags($new_instance['title_of_widget']);
 
 		return $instance;
 	}
@@ -74,7 +85,14 @@ class stockticker_widget extends WP_Widget {
 			$width_of_widget = $instance['width_of_widget'].'px;';
 		}
 		
-		$title = "startupbus stock ticker";
+		if(empty($instance['title_of_widget'])) { 
+			$title_of_widget = "startupbus stock ticker";
+		} else {
+			$title_of_widget = $instance['title_of_widget'];
+		}
+		
+		
+		$title = $title_of_widget;
 
 		if(!empty($title)) {
 			echo $before_title . $title . $after_title;

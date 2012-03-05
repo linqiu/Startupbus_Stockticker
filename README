@@ -4,9 +4,9 @@ INSTALLATION:
 needs jquery!
 
 release notes:
-- using YQL to read JSON feed from startupbus.com so we can test it on staging WP site.
-
-- fixed mouse over algorithm so it's even
+- added custom title field for widget
+- JSON feed coming from startupbus (special shout out to Mr. Leonardo for the JSONP tip)
+- fixed mouse over algorithm so its speed is even
 - speed and width of scrolling adjusts automatically for different number of companies
 - added custom width field in the widget on wp-admin side
 
