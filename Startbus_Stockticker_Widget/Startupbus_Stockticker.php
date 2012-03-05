@@ -104,12 +104,12 @@ class stockticker_widget extends WP_Widget {
 	}
 
 	function StockTicker_output($instance) {
-		
+		//<script type="text/javascript" src="wp-content/plugins/Startbus_Stockticker_Widget/js/stock.js"></script>
+				
 			echo '
 				<div id="StockTicker" style="width:'.$instance.'">
 					<div id="loadingMessage"></div>
 				</div>
-				<script type="text/javascript" src="wp-content/plugins/Startbus_Stockticker_Widget/js/stock.js"></script>
 				
 			';
 	}
@@ -117,7 +117,7 @@ class stockticker_widget extends WP_Widget {
 
 add_action('widgets_init', create_function('', 'return register_widget("stockticker_widget");'));
 add_action('wp_enqueue_scripts', 'add_my_stylesheet');
-//add_action('wp_enqueue_scripts', 'add_my_js');
+add_action('wp_enqueue_scripts', 'add_my_js');
    
     function add_my_stylesheet() {
         $myStyleUrl = plugins_url('css/stockticker.css', __FILE__); // Respects SSL, Style.css is relative to the current file

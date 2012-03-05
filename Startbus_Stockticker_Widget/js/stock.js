@@ -17,9 +17,6 @@ window.onload = (function(){
 });
 
 jQuery(document).ready(function() {
-	jQuery('#loadingMessage').hide();
-
-	ShowTick(jQuery('#stock_strip'), strip_length, pauseTime);
 	
 	jQuery('#StockTicker').mouseover(function() {
     	jQuery('#stock_strip').stop();
@@ -55,6 +52,7 @@ function reset_strip() {
 
 
 function showData(init_data) {
+	jQuery('#loadingMessage').hide();
 	var len = init_data.length;
 
 	strip_length = len * stock_width;
@@ -78,6 +76,8 @@ function showData(init_data) {
 		
 
 	}
+	
+	ShowTick(jQuery('#stock_strip'), strip_length, pauseTime);
 
 }
 
