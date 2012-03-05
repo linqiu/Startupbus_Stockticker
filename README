@@ -7,6 +7,7 @@ release notes:
 - fixed mouse over algorithm so it's even
 - speed and width of scrolling adjusts automatically for different number of companies
 - added custom width field in the widget on wp-admin side
+- added getJSON to actually read <site>/game/companies.json (now i can't test it in my local version and need access to wp-admin)
 
 FEATURES NEEDED:
 
