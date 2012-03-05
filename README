@@ -10,6 +10,5 @@ release notes:
 
 FEATURES NEEDED:
 
-1.) Different animation method to deal with changing number of companies in the array sent by JSON
-2.) links added to each company stock
-3.) show whether the stocks are doing well or poorly (add css classes for different colors)
+1.) links added to each company stock (HOLD: need actual urls)
+2.) show whether the stocks are doing well or poorly (HOLD: waiting on api feature)
