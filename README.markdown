@@ -3,3 +3,10 @@ INSTALLATION:
 2.) please manually add stockticker.css to the CSS load 
 
 needs jquery!
+
+
+FEATURES NEEDED:
+
+1.) Different animation method to deal with changing number of companies in the array sent by JSON
+2.) links added to each company stock
+3.) show whether the stocks are doing well or poorly (add css classes for different colors)
