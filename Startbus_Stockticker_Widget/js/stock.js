@@ -18,6 +18,7 @@ window.onload = (function(){
 
 $(document).ready(function() {
 	showData();
+	
 	ShowTick($('#stock_strip'), strip_length);
 	
 	$('#StockTicker').mouseover(function() {
@@ -26,11 +27,22 @@ $(document).ready(function() {
 	$('#StockTicker').mouseout(function() {
         ShowTick($('#stock_strip'), strip_length);
 	});
+	/*
+	$('#stock_strip').autoscroll.defaults = { 
+        start: {
+            step: 50,
+            scroll: true,
+            direction: "down"
+        },
+        delay: 5000,
+        ffrw: { speed: "fast", step: 100 }
+    };*/
 });
+
 
 function ShowTick(elem, strip_length) {
     elem.animate({
-    	left: '-='+strip_length
+    	left: -strip_length
   	}, 35000, 'linear', function() {
   		reset_strip();
     });
@@ -63,10 +75,11 @@ function showData() {
 		dv_each_stock.setAttribute('id', "each_stock"+i);
 		$("#stock_strip").append(dv_each_stock);
 		
-		$("#each_stock"+i).append("$"+init_data[i].ticker);
+		$("#each_stock"+i).append('<a href="'+init_data[i].created_at+'" title="'+init_data[i].name+'">$'+init_data[i].ticker+"</a>");
+		
+		
 
 	}
-//	$("#stock_strip").append("<h2>OMG this is the longest widget i've ever seen in my life it's so epically long. This is the stockticker widget</h2>");
 
 }
 
