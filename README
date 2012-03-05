@@ -5,6 +5,8 @@ needs jquery!
 
 release notes:
 - fixed mouse over algorithm so it's even
+- speed and width of scrolling adjusts automatically for different number of companies
+- added custom width field in the widget on wp-admin side
 
 FEATURES NEEDED:
 

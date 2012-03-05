@@ -1,7 +1,7 @@
 var strip_length = 0;
 // sets width of each stock name
 var stock_width = 60;
-var pauseTime = 35000;
+var pauseTime = 0;
 
 
 window.onload = (function(){
@@ -61,7 +61,8 @@ function showData() {
 	var len = init_data.length;
 	
 	strip_length = len * stock_width;
-	
+	pauseTime = len * 1090;
+		
 	dv_stock = document.createElement('div');
 	dv_stock.className = "stock_list";
 	dv_stock.setAttribute('id', "stock_strip");
